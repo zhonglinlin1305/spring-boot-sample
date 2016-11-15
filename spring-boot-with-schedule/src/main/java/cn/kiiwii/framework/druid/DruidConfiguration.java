@@ -96,6 +96,7 @@ public class DruidConfiguration {
         druidDataSource.setConnectionProperties(connectionProperties);
         try {
             druidDataSource.setFilters(filters);
+            druidDataSource.init();
         } catch (SQLException e) {
             e.printStackTrace();
         }
