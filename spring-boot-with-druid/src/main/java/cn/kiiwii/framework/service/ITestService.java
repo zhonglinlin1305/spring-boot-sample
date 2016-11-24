@@ -6,4 +6,6 @@ package cn.kiiwii.framework.service;
 public interface ITestService {
 
     void test();
+
+    void testTransaction();
 }

@@ -23,4 +23,10 @@ public class TestController {
         testService.test();
         return "hello";
     }
+
+    @RequestMapping("/testTrans")
+    public String testTrans() {
+        testService.testTransaction();
+        return "testTransaction";
+    }
 }

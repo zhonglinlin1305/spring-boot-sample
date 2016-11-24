@@ -10,6 +10,7 @@
     <module>spring-boot-with-hibernate</module>
     <module>spring-boot-with-dynamic-datasource</module>
     <module>spring-boot-with-druid</module>
+    <module>spring-boot-with-dubbo</module>
   </modules>
   <packaging>pom</packaging>
 

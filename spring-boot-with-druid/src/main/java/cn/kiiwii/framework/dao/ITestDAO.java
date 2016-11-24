@@ -5,4 +5,6 @@ package cn.kiiwii.framework.dao;
  */
 public interface ITestDAO {
     void test();
+
+    void save();
 }

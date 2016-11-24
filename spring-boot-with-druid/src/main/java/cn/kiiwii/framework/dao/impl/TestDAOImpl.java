@@ -21,4 +21,9 @@ public class TestDAOImpl implements ITestDAO {
         List<Map<String,Object>> list = this.jdbcTemplate.queryForList("select * from test");
         System.out.println(list);
     }
+
+    @Override
+    public void save() {
+        this.jdbcTemplate.execute("INSERT INTO test (`test_name`,`test_num`) VALUES ('zhong','27')");
+    }
 }
