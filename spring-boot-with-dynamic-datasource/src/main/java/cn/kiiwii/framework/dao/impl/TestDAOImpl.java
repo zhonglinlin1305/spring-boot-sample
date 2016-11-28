@@ -1,14 +1,11 @@
 package cn.kiiwii.framework.dao.impl;
 
-import cn.kiiwii.framework.dao.ITestDAO;
 import cn.kiiwii.framework.druid.DynamicDataSource.TargetDataSource;
+import cn.kiiwii.framework.dao.ITestDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
 import java.util.List;
 import java.util.Map;
 
