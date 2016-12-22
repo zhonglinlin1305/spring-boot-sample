@@ -32,6 +32,7 @@ public class ServiceAop {
 
     @Before("webRequestLog()")
     public void doBefore(JoinPoint joinPoint) {
+        ThreadLocal threadLocal;
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         String beanName = joinPoint.getSignature().getDeclaringTypeName();
