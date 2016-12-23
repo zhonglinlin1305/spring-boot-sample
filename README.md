@@ -1,4 +1,4 @@
-#spring-boot druid mybatis schedule dynamic-datasource
+#spring-boot druid mybatis schedule dynamic-datasource jpa
     本系列是spring-boot相关的一些列子，比如spring-boot集成druid，以及druid的动态数据源切换，
     spring-boot 集成mybatis，spring-boot集成定时器等等
 
@@ -8,3 +8,7 @@
 详情查看项目 [spring-boot-with-dynamic-datasource](spring-boot-with-dynamic-datasource/)
 #3、spring-boot实现定时任务
 详情查看项目 [spring-boot-with-schedule](spring-boot-with-schedule/)
+#4、spring-boot集成mybatis
+详情查看项目 [spring-boot-with-mybatis](spring-boot-with-mybatis/)
+#5、spring-boot集成jpa
+详情查看项目 [spring-boot-with-jpa](spring-boot-with-jpa/)
