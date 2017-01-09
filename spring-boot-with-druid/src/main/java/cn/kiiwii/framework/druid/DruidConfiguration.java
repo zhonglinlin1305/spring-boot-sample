@@ -3,8 +3,11 @@ package cn.kiiwii.framework.druid;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -17,66 +20,35 @@ import java.sql.SQLException;
  * Created by zhong on 2016/9/5.
  */
 @Configuration
+@EnableConfigurationProperties({DruidDataSourceProperties.class})
 public class DruidConfiguration {
-    @Value("${spring.datasource.driverClassName}")
-    private String driver;
-    @Value("${spring.datasource.url}")
-    String url;
-    @Value("${spring.datasource.username}")
-    String username;
-    @Value("${spring.datasource.password}")
-    String password;
-    @Value("${spring.datasource.initialSize}")
-    int initialSize;
-    @Value("${spring.datasource.minIdle}")
-    int minIdle;
-    @Value("${spring.datasource.maxActive}")
-    int maxActive;
-    @Value("${spring.datasource.maxWait}")
-    long maxWait;
-    @Value("${spring.datasource.timeBetweenEvictionRunsMillis}")
-    long timeBetweenEvictionRunsMillis;
-    @Value("${spring.datasource.minEvictableIdleTimeMillis}")
-    long minEvictableIdleTimeMillis;
-    @Value("${spring.datasource.validationQuery}")
-    String validationQuery;
-    @Value("${spring.datasource.testWhileIdle}")
-    boolean testWhileIdle;
-    @Value("${spring.datasource.testOnBorrow}")
-    boolean testOnBorrow;
-    @Value("${spring.datasource.testOnReturn}")
-    boolean testOnReturn;
-    @Value("${spring.datasource.poolPreparedStatements}")
-    boolean poolPreparedStatements;
-    @Value("${spring.datasource.maxPoolPreparedStatementPerConnectionSize}")
-    int maxPoolPreparedStatementPerConnectionSize;
-    @Value("${spring.datasource.filters}")
-    String filters;
-    @Value("${spring.datasource.connectionProperties}")
-    String connectionProperties;
+
+    @Autowired
+    private DruidDataSourceProperties properties;
 
     @Bean
+    @ConditionalOnMissingBean
     public DataSource druidDataSource() {
         DruidDataSource druidDataSource = new DruidDataSource();
-        druidDataSource.setDriverClassName(driver);
-        druidDataSource.setUrl(url);
-        druidDataSource.setUsername(username);
-        druidDataSource.setPassword(password);
-        druidDataSource.setInitialSize(initialSize);
-        druidDataSource.setMinIdle(minIdle);
-        druidDataSource.setMaxActive(maxActive);
-        druidDataSource.setMaxWait(maxWait);
-        druidDataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        druidDataSource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
-        druidDataSource.setValidationQuery(validationQuery);
-        druidDataSource.setTestWhileIdle(testWhileIdle);
-        druidDataSource.setTestOnBorrow(testOnBorrow);
-        druidDataSource.setTestOnReturn(testOnReturn);
-        druidDataSource.setPoolPreparedStatements(poolPreparedStatements);
-        druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
-        druidDataSource.setConnectionProperties(connectionProperties);
+        druidDataSource.setDriverClassName(properties.getDriverClassName());
+        druidDataSource.setUrl(properties.getUrl());
+        druidDataSource.setUsername(properties.getUsername());
+        druidDataSource.setPassword(properties.getPassword());
+        druidDataSource.setInitialSize(properties.getInitialSize());
+        druidDataSource.setMinIdle(properties.getMinIdle());
+        druidDataSource.setMaxActive(properties.getMaxActive());
+        druidDataSource.setMaxWait(properties.getMaxWait());
+        druidDataSource.setTimeBetweenEvictionRunsMillis(properties.getTimeBetweenEvictionRunsMillis());
+        druidDataSource.setMinEvictableIdleTimeMillis(properties.getMinEvictableIdleTimeMillis());
+        druidDataSource.setValidationQuery(properties.getValidationQuery());
+        druidDataSource.setTestWhileIdle(properties.isTestWhileIdle());
+        druidDataSource.setTestOnBorrow(properties.isTestOnBorrow());
+        druidDataSource.setTestOnReturn(properties.isTestOnReturn());
+        druidDataSource.setPoolPreparedStatements(properties.isPoolPreparedStatements());
+        druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(properties.getMaxPoolPreparedStatementPerConnectionSize());
+        druidDataSource.setConnectionProperties(properties.getConnectionProperties());
         try {
-            druidDataSource.setFilters(filters);
+            druidDataSource.setFilters(properties.getFilters());
             druidDataSource.init();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,6 +58,7 @@ public class DruidConfiguration {
     }
 
     @Bean
+    @ConditionalOnMissingBean
     public ServletRegistrationBean druidServlet() {
 
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
@@ -106,6 +79,7 @@ public class DruidConfiguration {
     }
 
     @Bean
+    @ConditionalOnMissingBean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
         filterRegistrationBean.setFilter(new WebStatFilter());
