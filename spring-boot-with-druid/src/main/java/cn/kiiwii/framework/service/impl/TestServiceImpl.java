@@ -21,9 +21,9 @@ public class TestServiceImpl implements ITestService {
         this.testDAO.test();
     }
 
-    @Transactional(propagation= Propagation.REQUIRED )
+    @Transactional
     @Override
-    public void testTransaction() {
+    public void testTransaction() throws Exception{
         this.testDAO.save();
         int i = 9/0;
         this.testDAO.save();

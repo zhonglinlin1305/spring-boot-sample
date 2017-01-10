@@ -12,3 +12,5 @@
 详情查看项目 [spring-boot-with-mybatis](spring-boot-with-mybatis/)
 #5、spring-boot集成jpa
 详情查看项目 [spring-boot-with-jpa](spring-boot-with-jpa/)
+#6、spring-boot集成hibernate(dao继承HibernateDaoSupport)
+详情查看项目 [spring-boot-with-hibernate](spring-boot-with-hibernate/)

@@ -20,7 +20,8 @@ public class WebAspect {
     private static Logger logger = LoggerFactory.getLogger(WebAspect.class);
 
     @Pointcut("execution(public * cn.kiiwii.framework.controller.*.*(..))")
-    public void webAspect() {}
+    public void webAspect() {
+    }
 
     @Before("webAspect()")
     public void doBefore(JoinPoint joinPoint) {
@@ -42,16 +43,12 @@ public class WebAspect {
     }
 
     @Around("webAspect()")
-    public Object around(ProceedingJoinPoint pjp){
+    public Object around(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("方法环绕start.....");
         Object o = null;
-        try {
-            System.out.println("before---------------------");
-            o = pjp.proceed();
-            System.out.println("after---------------------");
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
+        System.out.println("before---------------------");
+        o = pjp.proceed();
+        System.out.println("after---------------------");
         return o;
     }
 

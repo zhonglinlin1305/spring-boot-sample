@@ -106,16 +106,12 @@ public class ServiceAop {
     }
 
     @Around("webRequestLog()")
-    public Object around(ProceedingJoinPoint pjp){
+    public Object around(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("方法环绕start.....");
         Object o = null;
-        try {
             System.out.println("before---------------------");
             o = pjp.proceed();
             System.out.println("after---------------------");
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
         return o;
     }
 

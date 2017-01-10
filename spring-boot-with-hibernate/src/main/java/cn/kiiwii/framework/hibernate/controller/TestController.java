@@ -1,6 +1,6 @@
-package cn.kiiwii.framework.controller;
+package cn.kiiwii.framework.hibernate.controller;
 
-import cn.kiiwii.framework.service.ITestService;
+import cn.kiiwii.framework.hibernate.service.ITestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,9 @@
-package cn.kiiwii.framework.service;
+package cn.kiiwii.framework.hibernate.service;
 
 /**
- * Created by zhong on 2016/9/5.
+ * Created by zhong on 2017/1/5.
  */
 public interface ITestService {
-
     void test();
 
     void testTransaction() throws Exception;

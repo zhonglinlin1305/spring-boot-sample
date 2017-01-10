@@ -4,6 +4,8 @@ import cn.kiiwii.framework.dao.ITestDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -22,6 +24,7 @@ public class TestDAOImpl implements ITestDAO {
         System.out.println(list);
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void save() {
         this.jdbcTemplate.execute("INSERT INTO test (`test_name`,`test_num`) VALUES ('zhong','27')");
