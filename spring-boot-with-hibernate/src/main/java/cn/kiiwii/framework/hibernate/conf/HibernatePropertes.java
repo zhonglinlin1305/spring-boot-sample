@@ -24,7 +24,15 @@ public class HibernatePropertes {
     private String[] PackagesToScan;
 
     enum Hbm2ddl{
-        UPDATE,CREATE,CREATEDROP,VALIDATE;
+        UPDATE("update"),CREATE("create"),CREATEDROP("create-drop"),VALIDATE("validate");
+        private String value;
+        Hbm2ddl(String value) {
+            this.value = value;
+        }
+        @Override
+        public String toString() {
+            return value;
+        }
     }
     public HibernatePropertes() {
         this.jdbc = new HibernatePropertes.JDBC();
