@@ -13,6 +13,8 @@
     <module>spring-boot-with-dubbo</module>
     <module>spring-boot-with-jpa</module>
     <module>spring-boot-with-mybatis</module>
+    <module>spring-boot-with-druid-dpcp</module>
+    <module>spring-boot-dubbo-plugin</module>
   </modules>
   <packaging>pom</packaging>
 

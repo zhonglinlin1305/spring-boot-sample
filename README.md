@@ -14,3 +14,5 @@
 详情查看项目 [spring-boot-with-jpa](spring-boot-with-jpa/)
 #6、spring-boot集成hibernate(dao继承HibernateDaoSupport)
 详情查看项目 [spring-boot-with-hibernate](spring-boot-with-hibernate/)
+#7、spring-boot集成dubbo,所有配置均使用application.properties
+详情查看项目 [spring-boot-with-dubbo](spring-boot-with-dubbo/)

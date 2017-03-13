@@ -2,6 +2,7 @@ package cn.kiiwii.framework.dubbo.provider.service;
 
 import cn.kiiwii.framework.dubbo.api.IPerson;
 import cn.kiiwii.framework.dubbo.provider.dao.ITestDAO;
+import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
  * Created by zhong on 2016/11/22.
  */
 @Component
-@com.alibaba.dubbo.config.annotation.Service(version="1.0.0")
+@Service(version="1.0.0")
 public class PersonServiceImpl implements IPerson {
 
     @Autowired
