@@ -15,6 +15,7 @@
     <module>spring-boot-with-mybatis</module>
     <module>spring-boot-with-druid-dpcp</module>
     <module>spring-boot-dubbo-plugin</module>
+    <module>spring-boot-with-freemarker</module>
   </modules>
   <packaging>pom</packaging>
 
