@@ -147,7 +147,7 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
         initialSize = Integer.parseInt(propertyResolver.getProperty("initialSize"));
         minIdle = Integer.parseInt(propertyResolver.getProperty("minIdle"));
         maxActive = Integer.parseInt(propertyResolver.getProperty("maxActive"));
-        maxWait = Long.parseLong(propertyResolver.getProperty("initialSize"));
+        maxWait = Long.parseLong(propertyResolver.getProperty("maxWait"));
         timeBetweenEvictionRunsMillis = Long.parseLong(propertyResolver.getProperty("timeBetweenEvictionRunsMillis"));
         minEvictableIdleTimeMillis = Long.parseLong(propertyResolver.getProperty("minEvictableIdleTimeMillis"));
         validationQuery = propertyResolver.getProperty("validationQuery");
